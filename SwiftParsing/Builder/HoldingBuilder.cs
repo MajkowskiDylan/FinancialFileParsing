@@ -1,5 +1,6 @@
 ﻿using SwiftParsing.Interfaces;
 using SwiftParsing.Models;
+using SwiftParsing.Utils;
 using System;
 
 namespace SwiftParsing.Builder
@@ -20,7 +21,24 @@ namespace SwiftParsing.Builder
         }
         public void Build(string columnName, string columnValue)
         {
-            throw new NotImplementedException();
+            switch (columnName)
+            {
+                case StringConstants.colReference: _holding._reference = columnValue;
+                    break;
+                case StringConstants.colSens: _holding._sens = char.Parse(columnValue);
+                    break;
+                case StringConstants.colCurrencyCode: _holding._currencyCode = columnValue;
+                    break;
+                case StringConstants.colAmount: _holding._amount = columnValue;
+                    break;
+                case StringConstants.colCashAccount: _holding._cashAccount = columnValue;
+                    break;
+                case StringConstants.colPreviousBalanceSens: _holding._previousBalanceSens = columnValue;
+                    break;
+                case StringConstants.colPreviousBalanceAmount: _holding._previousBalanceAmount = columnValue;
+                    break;
+                default: throw new Exception($"Couldn't set string value '{columnValue}' to holding column.");
+            }
         }
 
         public void Build(string columnName, DateTime columnValue)

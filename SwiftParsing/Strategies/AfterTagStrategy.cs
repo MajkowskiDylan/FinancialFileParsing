@@ -11,7 +11,6 @@ namespace SwiftParsing.Strategies
     {
         private string _columnName;
         public AfterTagStrategy(string prefix, string columnName) : base(prefix) => _columnName = columnName;
-
         public void ExecuteStrategy(IBuilder builder, string line) => builder.Build(_columnName, line[_prefix.Length..]);
     }
 }

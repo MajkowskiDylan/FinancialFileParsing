@@ -14,8 +14,9 @@ namespace SwiftParsing.Models
         public DateTime _statementDate { get; set; }
         public string _currencyCode { get; set; }
         public string _amount { get; set; }
-        public string _cashAccount { get; set; }   
+        public string _cashAccount { get; set; }
         public char _previousBalanceStatementDate { get; set; }
         public string _previousBalanceAmount { get; set; }
+        public char _previousBalanceSens { get; set; }
     }
 }
